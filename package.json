@@ -4,7 +4,7 @@
   "description": "ctdDemo",
   "repository": {
     "type": "git",
-    "url": "git@github.com:spring-guides/tut-react-and-spring-data-rest.git"
+    "url": "https://github.com/igorsLovc/ctdTestDemo.git"
   },
   "keywords": [
     "rest",
