@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 @Entity
-public class PaymentInfoField implements ctdDemo.service.PaymentInfoField{
+public class PaymentInfoField {
 	private @Id @GeneratedValue Long id;
 	private String field;
 	private String fieldName;

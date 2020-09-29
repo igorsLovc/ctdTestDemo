@@ -17,7 +17,16 @@ import org.springframework.stereotype.Component;
 
 @Component("EmailServiceImpl")
 public class EmailServiceImpl implements EmailService{
+	@Value("${spring.mail.username}")
+	private String username;
+	@Value("${spring.mail.password}")
+	private String password;
 	
+	@Value("${spring.mail.host}")
+	private String host;
+	@Value("${spring.mail.port}")
+	private int port;
+
 	@Override
     public void sendMessageWithAttachment(String to, String subject, String text, String pathToAttachment) throws MessagingException {
 
@@ -39,11 +48,11 @@ public class EmailServiceImpl implements EmailService{
    
     public JavaMailSender getJavaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        mailSender.setHost("smtp.gmail.com");
-        mailSender.setPort(587);
+        mailSender.setHost(host);
+        mailSender.setPort(port);
         
-        mailSender.setUsername("noreply.CTD.test.demo@gmail.com");
-        mailSender.setPassword("88G6X+DX5x})T;R/");
+        mailSender.setUsername(username);
+        mailSender.setPassword(password);
         
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");

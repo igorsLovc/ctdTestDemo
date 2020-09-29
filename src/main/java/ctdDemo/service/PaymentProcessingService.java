@@ -2,7 +2,8 @@ package ctdDemo.service;
 
 import java.util.List;
 
-import ctdDemo.service.PaymentInfoField;
+import ctdDemo.model.PaymentInfoField;
+
 
 public interface PaymentProcessingService {
 

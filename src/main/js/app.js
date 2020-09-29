@@ -12,7 +12,7 @@ class App extends React.Component { // <1>
 
 	constructor(props) {
 		super(props);
-		this.state = {bank:{},  paymentInfoFields: []};
+		this.state = {bank:{}, paymentInfoFields: []};
 		this.onCreate = this.onCreate.bind(this);
 	}
 
@@ -28,7 +28,7 @@ class App extends React.Component { // <1>
 
 	
 	onCreate(newPaymentInfoFields) {
-		follow(client, root, ['payments'])
+		follow(client, root, ['paymentInfoFields'])
 		.then(response => {
 			return client({
 				method: 'POST',
@@ -90,10 +90,9 @@ class PaymentFields extends React.Component{
 	
 	render() {
 		const inputsPayment = this.props.paymentInfoFields.map(paymentInfoField =>
-			<p key={paymentInfoField.field}><label>{paymentInfoField.fieldName}
+			<p key={paymentInfoField.field}>{paymentInfoField.fieldName}:
 				<input type="text" placeholder={paymentInfoField.fieldName} ref={paymentInfoField.field} className="field"/>
-					</label>
-					</p>
+			</p>
 		);
 		return (
 			<div>

@@ -34162,7 +34162,7 @@ var App = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "onCreate",
     value: function onCreate(newPaymentInfoFields) {
-      follow(client, root, ['payments']).then(function (response) {
+      follow(client, root, ['paymentInfoFields']).then(function (response) {
         return client({
           method: 'POST',
           path: '/paymentProcess',
@@ -34246,12 +34246,12 @@ var PaymentFields = /*#__PURE__*/function (_React$Component3) {
       var inputsPayment = this.props.paymentInfoFields.map(function (paymentInfoField) {
         return /*#__PURE__*/React.createElement("p", {
           key: paymentInfoField.field
-        }, /*#__PURE__*/React.createElement("label", null, paymentInfoField.fieldName, /*#__PURE__*/React.createElement("input", {
+        }, paymentInfoField.fieldName, ":", /*#__PURE__*/React.createElement("input", {
           type: "text",
           placeholder: paymentInfoField.fieldName,
           ref: paymentInfoField.field,
           className: "field"
-        })));
+        }));
       });
       return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", null, "Create new payment"), /*#__PURE__*/React.createElement("form", null, inputsPayment, /*#__PURE__*/React.createElement("button", {
         onClick: this.handleSubmit
