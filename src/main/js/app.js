@@ -36,13 +36,11 @@ class App extends React.Component { // <1>
 				entity: newPaymentInfoFields,
 				headers: {'Content-Type': 'application/json'}
 			})
-		}).then(_success, _error);
+		}).then(_success).catch(error => {
+	        alert(error.entity.message);
+	    });
 		function _success() {
 	        alert("Successfully done");
-	    }
-
-	    function _error() {
-	        alert("Something went wrong");
 	    }
 		
 	}

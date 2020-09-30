@@ -31,7 +31,7 @@ public class PaymentController {
 			paymentProcessingService.process(paymentFormDatas);
     	} catch (Exception e) {
     		throw new ResponseStatusException(
-    		         HttpStatus.INTERNAL_SERVER_ERROR, "Something wrong", e);
+    		       HttpStatus.INTERNAL_SERVER_ERROR, e.getLocalizedMessage(), e);
 
 		}
 			
