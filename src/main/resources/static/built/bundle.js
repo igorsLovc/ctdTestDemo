@@ -34172,14 +34172,12 @@ var App = /*#__PURE__*/function (_React$Component) {
             'Content-Type': 'application/json'
           }
         });
-      }).then(_success, _error);
+      }).then(_success)["catch"](function (error) {
+        alert(error.entity.message);
+      });
 
       function _success() {
         alert("Successfully done");
-      }
-
-      function _error() {
-        alert("Something went wrong");
       }
     }
   }, {
