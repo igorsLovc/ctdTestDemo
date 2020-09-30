@@ -34172,8 +34172,15 @@ var App = /*#__PURE__*/function (_React$Component) {
             'Content-Type': 'application/json'
           }
         });
-      });
-      alert('Payment sended');
+      }).then(_success, _error);
+
+      function _success() {
+        alert("Successfully done");
+      }
+
+      function _error() {
+        alert("Something went wrong");
+      }
     }
   }, {
     key: "render",
@@ -34247,6 +34254,7 @@ var PaymentFields = /*#__PURE__*/function (_React$Component3) {
         return /*#__PURE__*/React.createElement("p", {
           key: paymentInfoField.field
         }, paymentInfoField.fieldName, ":", /*#__PURE__*/React.createElement("input", {
+          required: true,
           type: "text",
           placeholder: paymentInfoField.fieldName,
           ref: paymentInfoField.field,

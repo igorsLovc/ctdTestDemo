@@ -34,7 +34,7 @@ public class EmailServiceImpl implements EmailService{
         MimeMessage message = javaMailSender.createMimeMessage();
          
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
-        helper.setFrom("noreply@hrbportal.com");
+        helper.setFrom("noreply@payment.com");
         helper.setTo(to);
         helper.setSubject(subject);
         helper.setText(text);

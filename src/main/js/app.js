@@ -36,9 +36,17 @@ class App extends React.Component { // <1>
 				entity: newPaymentInfoFields,
 				headers: {'Content-Type': 'application/json'}
 			})
-		})
-		alert('Payment sended');
+		}).then(_success, _error);
+		function _success() {
+	        alert("Successfully done");
+	    }
+
+	    function _error() {
+	        alert("Something went wrong");
+	    }
+		
 	}
+	
 
 	render() { // <3>
 		return (
@@ -91,7 +99,7 @@ class PaymentFields extends React.Component{
 	render() {
 		const inputsPayment = this.props.paymentInfoFields.map(paymentInfoField =>
 			<p key={paymentInfoField.field}>{paymentInfoField.fieldName}:
-				<input type="text" placeholder={paymentInfoField.fieldName} ref={paymentInfoField.field} className="field"/>
+				<input required type="text" placeholder={paymentInfoField.fieldName} ref={paymentInfoField.field} className="field"/>
 			</p>
 		);
 		return (

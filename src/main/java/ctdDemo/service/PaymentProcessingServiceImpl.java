@@ -2,12 +2,15 @@ package ctdDemo.service;
 
 import java.util.List;
 
+import javax.ws.rs.core.Response;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import ctdDemo.model.PaymentInfoField;
+
 
 @Component("PaymentProcessingServiceImpl")
 public class PaymentProcessingServiceImpl implements PaymentProcessingService{
@@ -22,17 +25,13 @@ public class PaymentProcessingServiceImpl implements PaymentProcessingService{
 	@Value("${pdf.source}")
 	private String pdfSource;
 	
+	@Value("${mail.recipient}")
+	private String recipient;
+	
 	@Override
-	public void process(List<PaymentInfoField> paymentFormDatas) {
-		 try {
-
-			 pdfReportService.render(pdfSource, "fillForm.pdf", paymentFormDatas);
-			 emailService.sendMessageWithAttachment("igor26.78@gmail.com", "Payment information", "You received new payment with attachment", "fillForm.pdf");
-			
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+	public void process(List<PaymentInfoField> paymentFormDatas) throws Exception {
+		pdfReportService.render(pdfSource, "fillForm.pdf", paymentFormDatas);
+		emailService.sendMessageWithAttachment(recipient, "Payment information", "You received new payment with attachment", "fillForm.pdf");
 		
 	}
 
