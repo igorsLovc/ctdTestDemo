@@ -18,4 +18,7 @@ To login use:
 The project is created in eclipse
 
 Main class ctdDemo.Application
-Рost is available -  http://localhost:8080/
+
+Host is available 
+
+  http://localhost:8080/
