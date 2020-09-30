@@ -16,3 +16,5 @@ To login use:
 * password - pwd
 
 The project is created in eclipse
+
+Main class ctdDemo.Application
