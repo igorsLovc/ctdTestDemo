@@ -14,3 +14,5 @@ in the file application.properties.
 To login use:
 * user - user
 * password - pwd
+
+The project is created in eclipse
