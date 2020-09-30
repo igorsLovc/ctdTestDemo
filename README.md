@@ -1,5 +1,5 @@
 # ctdTestDemo
-This application demonstrates the mechanism for filling in and sending a payment report.
+This web application demonstrates the mechanism for filling in and sending a payment report.
 
 For correct work please define properties:
 
@@ -18,3 +18,4 @@ To login use:
 The project is created in eclipse
 
 Main class ctdDemo.Application
+Рost is available -  http://localhost:8080/
