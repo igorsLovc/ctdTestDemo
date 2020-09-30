@@ -9,17 +9,21 @@ public class PaymentInfoField {
 	private String field;
 	private String fieldName;
 	private String value;
-	private String type;	
+	private String type;
+	private String groups;
 	
 	@SuppressWarnings("unused")
 	private PaymentInfoField() {
 		
 	}
-	public PaymentInfoField(String field,String fieldName, String value) {
+	public PaymentInfoField(String field,String fieldName, String value,String type, String groups) {
 		super();
 		this.field = field;
 		this.fieldName = fieldName;
 		this.value = value;
+		this.type = type;
+		this.groups = groups;
+		
 	}
 	
 	
@@ -48,6 +52,12 @@ public class PaymentInfoField {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	public String getGroups() {
+		return groups;
+	}
+	public void setGroups(String groups) {
+		this.groups = groups;
 	}
 	
 }

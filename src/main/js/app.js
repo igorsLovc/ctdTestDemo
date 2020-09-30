@@ -96,9 +96,10 @@ class PaymentFields extends React.Component{
 	
 	render() {
 		const inputsPayment = this.props.paymentInfoFields.map(paymentInfoField =>
-			<p key={paymentInfoField.field}>{paymentInfoField.fieldName}:
-				<input required type="text" placeholder={paymentInfoField.fieldName} ref={paymentInfoField.field} className="field"/>
-			</p>
+		<div>
+			<p key={paymentInfoField.field}>{paymentInfoField.groups} - {paymentInfoField.fieldName}:
+				<input required type={paymentInfoField.type} placeholder={paymentInfoField.fieldName} ref={paymentInfoField.field} className="field"/>
+			</p></div>
 		);
 		return (
 			<div>

@@ -34249,15 +34249,15 @@ var PaymentFields = /*#__PURE__*/function (_React$Component3) {
     key: "render",
     value: function render() {
       var inputsPayment = this.props.paymentInfoFields.map(function (paymentInfoField) {
-        return /*#__PURE__*/React.createElement("p", {
+        return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
           key: paymentInfoField.field
-        }, paymentInfoField.fieldName, ":", /*#__PURE__*/React.createElement("input", {
+        }, paymentInfoField.groups, " - ", paymentInfoField.fieldName, ":", /*#__PURE__*/React.createElement("input", {
           required: true,
-          type: "text",
+          type: paymentInfoField.type,
           placeholder: paymentInfoField.fieldName,
           ref: paymentInfoField.field,
           className: "field"
-        }));
+        })));
       });
       return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", null, "Create new payment"), /*#__PURE__*/React.createElement("form", null, inputsPayment, /*#__PURE__*/React.createElement("button", {
         onClick: this.handleSubmit

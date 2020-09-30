@@ -63,7 +63,7 @@
 	</dependencies>
 	
 	<build>
-	<finalName>citadeleTest</finalName>
+	<finalName>ctdDemo</finalName>
 	<pluginManagement>
 			<plugins>
 				<!-- tag::frontend-maven-plugin[] -->

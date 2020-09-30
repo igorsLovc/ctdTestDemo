@@ -1,5 +1,8 @@
 package ctdDemo.repository;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -37,14 +40,17 @@ public class Initialization implements CommandLineRunner{
 	
 		Bank bank = new Bank("AS \"Citadele banka\"", "Reģ. nr. 40103303559" , "Republikas laukums 2A, Rīga, LV-1010, Latvija");
 		this.bankRepository.save(bank);
-		
-		PdfDocument pdfDoc = new PdfDocument(new PdfReader("paper_payment_form.pdf"));
-		PdfAcroForm form = PdfAcroForm.getAcroForm(pdfDoc, true);
-		for( PdfFormField f:form.getFormFields().values()) {
-            String str = f.getAlternativeName().toUnicodeString();
-            PaymentInfoField paymentInfoField = new PaymentInfoField(f.getFieldName()+"",str,null);
-    		this.paymentinfoFieldRepo.save(paymentInfoField);
-        }
+		try(BufferedReader file = new BufferedReader(new FileReader("fieldsMap.csv"))
+		){
+			String line = file.readLine();
+			while(line!=null) {
+				String[] f = line.split(";");
+				PaymentInfoField paymentInfoField = new PaymentInfoField(f[0]+"",f[1],null,f[2],f[3]);
+	    		this.paymentinfoFieldRepo.save(paymentInfoField);
+				line = file.readLine();
+			}
+			
+		}
 	}
 
 }

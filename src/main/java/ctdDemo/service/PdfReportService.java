@@ -15,16 +15,15 @@ import org.springframework.stereotype.Component;
 public class PdfReportService<S extends PaymentInfoField> {
 	
     public void render(String src, String dest, List<S> payments) throws Exception {
-    	PdfReader reader = new PdfReader(src);
-        PdfDocument pdfDoc = new PdfDocument(reader, new PdfWriter(dest));
-        PdfAcroForm form = PdfAcroForm.getAcroForm(pdfDoc, true);
-       
-        for(S payment: payments) {
-        	form.getField(payment.getField()).setValue(payment.getValue()+"");
-        }
-        
-        
-        pdfDoc.close();
+    	try(PdfReader reader = new PdfReader(src);
+    			PdfDocument pdfDoc = new PdfDocument(reader, new PdfWriter(dest))){
+    		
+	        PdfAcroForm form = PdfAcroForm.getAcroForm(pdfDoc, true);
+	       
+	        for(S payment: payments) {
+	        	form.getField(payment.getField()).setValue(payment.getValue()+"");
+	        }
+    	}
     }
 
 }
